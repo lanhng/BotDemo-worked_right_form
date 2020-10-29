@@ -1,0 +1,100 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- goodbye
+- affirm
+- deny
+- inform_gehalt
+- inform_workplace
+- thankyou
+- out_of_scope
+- mint_student
+- gender_female
+- first_generation
+- migration_background
+- control_group
+entities:
+- workplace
+- salary
+slots:
+  workplace:
+    type: unfeaturized
+  fair_salary:
+    type: unfeaturized
+  max_salary:
+    type: unfeaturized
+  min_salary:
+    type: unfeaturized
+  wish_salary:
+    type: unfeaturized
+responses:
+  utter_greet:
+  - text: Liebe Studentinnen und Studenten, vielen Dank für die Benutzung unserer
+      Job-Empfehlungssystem. Die Bearbeitungszeit der Fragen wird ca. 5-10 Minuten
+      in Anspruch nehmen. Wir bitten euch, die Frage so präzise und ehrlich wie möglich
+      zu beantworten. Bitte bestätige hier [die Teilnahme- und die Datenschutzerklärung](https://drive.google.com/file/d/1cvAtIQwNDQjqs3Mzxa4jWzpuPGUTuOXG/view?usp=sharing).
+      (Ja/Nein)
+  utter_choose_group:
+  - buttons:
+    - payload: /mint_student
+      title: MINT-Student
+    - payload: /gender_female
+      title: Geschlecht-weiblich
+    - payload: /first_generation
+      title: First Generation
+    - payload: /migration_background
+      title: Migrationshintergrund
+    - payload: /control_group
+      title: Kontrollgruppe
+    text: "Du hast schon die Teilnahme- und die Datenschutzerklärung bestätigt!\n\
+      \ Zur welche Gruppe der Studierenden gehörst Du?"
+  utter_ask_enroll_survey:
+  - text: Möchten Sie kurz unsere Jobsumfragen teilnehmen?
+  utter_goodbye:
+  - text: Auf Wiedersehen!
+  utter_ask_workplace_bedingungen:
+  - text: "Welche Anforderungen stellst Du an Deinen ersten Arbeitsplatz nach Deinem akademischen Abschluss? \n
+  (Wähl 5 aus den 25 folgenden, die am besten zu Dir passen).\n
+   1. Abwechslungsreiche Tätigkeit\n
+   2. Anbindung an öffentliche Verkehrsmittel\n
+   3. Flexible Arbeitszeitmodelle\n
+   4. Herausfordernde Tätigkeit\n
+   5. Aufstiegsmöglichkeiten\n
+   6. Weiterbildungsmöglichkeiten\n
+   7. Eigenverantwortliche Arbeit\n
+   8. Ethisch unverfängliche Arbeit\n
+   9. Arbeitszeiterfassung\n
+   10. Überstundenkonto\n
+   11. Moderner Arbeitsplatz\n
+   12. Gute Beziehung zu Vorgesetzten\n
+   13. Innovatives Unternehmen\n
+   14. Kantine\n
+   15. Kein Großraumbüro\n
+   16. Lockere Arbeitsatmosphäre\n
+   17. Kundenkontakt\n
+   18. Variable Vergütung\n
+   19. Räumliche Nähe zum Arbeitsplatz\n
+   20. Unbefristeter Vertrag\n
+   21. Tarifvertrag\n
+   22. Etabliertes Unternehmen\n
+   23. Flache Hierarchien\n
+   24. Dienstreisen\n
+   25. Einsatz neuer Technologien\n"
+  utter_ask_min_salary:
+  - text: Was ist das geringes Jahresgehalt für Sie ? (Bitte nur Zahlen eingeben!)
+  utter_ask_fair_salary:
+  - text: Was ist das faires Jahresgehalt für Sie ? (Bitte nur Zahlen eingeben!)
+  utter_ask_max_salary:
+  - text: Was ist das hohes Jahresgehalt für Sie ? (Bitte nur Zahlen eingeben!)
+  utter_ask_wish_salary:
+  - text: Was ist das Wunschgehalt für Sie ? (Bitte nur Zahlen eingeben!)
+  utter_slots_values:
+  - text: "Folgende sind die Zusammenfassung:\n - Geringes Jahresgehalt: {min_salary}\n\
+      \ - Faires Jahresgehalt: {fair_salary}\n - Hohes Jahresgehalt: {max_salary}\n\
+      \ - Wunschgehalt: {wish_salary}"
+  utter_ask_continue:
+  - text: Entschuldigung, ich verstehe nicht ganz. Wollen Sie fortfahren?
+forms:
+- form_info
